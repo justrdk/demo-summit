@@ -1,36 +1,47 @@
 <team-info>
 <div class="row container">
-  <button type="button" class="btn btn-primary" can-click='createTeam'>Create Team</button>
-  <button type="button" class="btn btn-danger">Delete Random Team</button>
-  {{#selectedTeam}}
-    <div class="col-lg-4 pull-right">
-      <div class="input-group">
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="button">Edit Team Name:</button>
-        </span>
-        <input type="text" class="form-control" can-value='teamName' can-change='updateTeam'>
-      </div><!-- /input-group -->
-    </div><!-- /.col-lg-6 -->
-  {{/selectedTeam}}
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createTeam">Create Team</button>
+	<button type="button" class="btn btn-danger">Delete Random Team</button>
 </div>
+{{#selectedTeam}}
+<div class="row">
+	<div class="col-lg-6">
+		<div class="input-group">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button">Edit Team Name:</button>
+				</span>
+				<input type="text" class="form-control" can-value='teamName' can-change='updateTeam'>
+		</div><!-- /input-group -->
+	</div><!-- /.col-lg-6 -->
+	<div class="col-lg-6">
+		<div class="input-group">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button">Edit Team Slogan:</button>
+				</span>
+				<input type="text" class="form-control" can-value='slogan' can-change='updateTeam'>
+		</div><!-- /input-group -->
+	</div><!-- /.col-lg-6 -->
+</div>
+{{/selectedTeam}}		
 <div class="row teams-container">
-  {{#each teams}}
-  
-  <div class="col-md-4">
-    <div class="panel panel-info">
-      <div class="panel-heading">{{teamName}}
-      </div>
-      <div class="panel-body">
-        <strong>{{slogan}}</strong>
-      </div>
-      <ul class="list-group">
-        {{#each members}}
-        <li class="list-group-item">{{name}}</li>
-        {{/each}}
-      </ul>
-    </div>
-    <button type="button" class="btn btn-success" can-click='selectTeam'>Edit Team Name</button>
-  </div>
-  {{/each}}
+	{{#each teams}}
+	
+	<div class="col-md-4">
+		<div class="panel panel-primary">
+			<div class="panel-heading">{{teamName}}
+			</div>
+			<div class="panel-body">
+				<strong>{{slogan}}</strong>
+			</div>
+			<ul class="list-group">
+				{{#each members}}
+				<li class="list-group-item">{{name}}</li>
+				{{/each}}
+			</ul>
+		</div>
+		<button type="button" class="btn btn-success" can-click='selectTeam'>Edit Team Name</button>
+	</div>
+	{{/each}}
 </div>
+{{>assets/js/createTeam.mustache}}
 </team-info>

@@ -23,7 +23,7 @@ module.exports = {
 		members: [{
 			name: 'richard elcreativo siwady'
 		}, {
-			name: 'rene phase pastor',
+			name: 'rene phase pastrana',
 		}, {
 			name: 'camilo el pm',
 		}, {
