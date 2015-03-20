@@ -1,0 +1,32 @@
+{
+  "name": "demo-summit",
+  "version": "0.0.1",
+  "description": "demmo for summit. canjs, feathersjs with reactjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/evilryu/demo-summit.git"
+  },
+  "keywords": [
+    "demo",
+    "aa",
+    "summit"
+  ],
+  "author": "osman.sist@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/evilryu/demo-summit/issues"
+  },
+  "homepage": "https://github.com/evilryu/demo-summit",
+  "dependencies": {
+    "body-parser": "^1.12.2",
+    "feathers": "^1.0.2",
+    "feathers-memory": "^0.3.4"
+  },
+  "devDependencies": {
+    "merge-descriptors": "^1.0.0"
+  }
+}
