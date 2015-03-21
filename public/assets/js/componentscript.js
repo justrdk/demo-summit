@@ -1,9 +1,9 @@
 var TeamModel = can.Model.extend({
 	findAll: 'GET /teams',
 	findOne: 'GET /teams/{id}',
-	update: 'POST /teams/{id}',
+	update: 'PUT /teams/{id}',
 	create: 'POST /teams',
-	destroy: 'POST /teams/{id}'
+	destroy: 'DELETE /teams/{id}'
 }, {});
 
 can.Component.extend({
@@ -37,6 +37,14 @@ can.Component.extend({
 		},
 		updateTeam: function(teamChanged, el) {
 			//make request to update team
+			var teamName = teamChanged.teamName;
+			var slogan = teamChanged.slogan;
+
+			TeamModel.findOne({id:teamChanged.id}, function(team){
+				team.attr('teamName', teamName);
+				team.attr('slogan', slogan);
+				team.save();
+			});
 		},
 		formatMembersString : function(){
 			var formatted = this.createdTeam.attr('stringMembers').split(',');
