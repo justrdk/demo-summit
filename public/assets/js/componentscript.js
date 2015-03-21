@@ -32,9 +32,6 @@ can.Component.extend({
 				self.attr('teams').push(team);
 			});
 		},
-		deleteTeam: function(team, el) {
-
-		},
 		updateTeam: function(teamChanged, el) {
 			//make request to update team
 			var teamName = teamChanged.teamName;
