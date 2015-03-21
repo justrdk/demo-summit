@@ -12,7 +12,7 @@ can.Component.extend({
 		teams: new TeamModel.List({}),
 		selectedTeam: null,
 		createdTeam: {
-			stringMembers : '',
+			stringMembers: '',
 			members: [],
 			teamName: '',
 			slogan: '',
@@ -28,7 +28,7 @@ can.Component.extend({
 			var deferred = TeamModel.create(this.attr('createdTeam').serialize());
 			var self = this;
 
-			deferred.then(function(team){
+			deferred.then(function(team) {
 				self.attr('teams').push(team);
 			});
 		},
@@ -40,13 +40,29 @@ can.Component.extend({
 			var teamName = teamChanged.teamName;
 			var slogan = teamChanged.slogan;
 
-			TeamModel.findOne({id:teamChanged.id}, function(team){
+			TeamModel.findOne({
+				id: teamChanged.id
+			}, function(team) {
 				team.attr('teamName', teamName);
 				team.attr('slogan', slogan);
 				team.save();
 			});
 		},
-		formatMembersString : function(){
+		generateRandomNumber: function() {
+			return Math.floor(Math.random() * this.teams.length);
+		},
+		deleteRandomTeam: function() {
+			randomTeamIndex = this.generateRandomNumber();
+			randomTeamId = this.teams[randomTeamIndex].id;
+
+			TeamModel.findOne({
+				id: randomTeamId
+			}, function(team) {
+				team.destroy();
+			});
+
+		},
+		formatMembersString: function() {
 			var formatted = this.createdTeam.attr('stringMembers').split(',');
 			for (var i = formatted.length - 1; i >= 0; i--) {
 				this.createdTeam.attr('members').push({
