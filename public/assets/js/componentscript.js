@@ -2,9 +2,41 @@ var TeamModel = can.Model.extend({
 	findAll: 'GET /teams',
 	findOne: 'GET /teams/{id}',
 	update: 'PUT /teams/{id}',
-	create: 'POST /teams',
+	create: function(attrs) {
+		$.post('http://localhost:3000/teams', attrs);
+		return $.Deferred();
+	},
 	destroy: 'DELETE /teams/{id}'
 }, {});
+
+var socket = io.connect();
+
+socket.on('teams created', function(team) {
+	$('team-info').scope().attr('teams').push(team);
+});
+
+socket.on('teams updated', function(team) {
+	for (var i = $('team-info').scope().attr('teams').length - 1; i >= 0; i--) {
+		var temp = $('team-info').scope().attr('teams')[i];
+		if(team.id === temp.id){
+			temp.attr('teamName', team.teamName);
+			temp.attr('slogan', team.slogan);
+			return;
+		}
+	}
+});
+
+socket.on('teams removed', function(team){
+	console.log('removed', team);
+
+	for (var i = $('team-info').scope().attr('teams').length - 1; i >= 0; i--) {
+		var temp = $('team-info').scope().attr('teams')[i];
+		if(team.id === temp.id){
+			$('team-info').scope().attr('teams').splice(i, 1);
+			return;
+		}
+	}
+});
 
 can.Component.extend({
 	tag: 'team-info',
@@ -26,11 +58,6 @@ can.Component.extend({
 		createTeam: function(team, el) {
 			this.formatMembersString();
 			var deferred = TeamModel.create(this.attr('createdTeam').serialize());
-			var self = this;
-
-			deferred.then(function(team) {
-				self.attr('teams').push(team);
-			});
 		},
 		updateTeam: function(teamChanged, el) {
 			//make request to update team

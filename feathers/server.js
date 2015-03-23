@@ -14,6 +14,5 @@ var app = feathers()
 	// Host the current directory (for index.html)
 	.use(feathers.static(__dirname + '/../public'))
 	// Host our Todos service on the /todos path
-	.use('/teams', teamService);
-
+	.use('/teams', teamService)
 app.listen(3000);
