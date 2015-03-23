@@ -60,7 +60,6 @@ can.Component.extend({
 			var deferred = TeamModel.create(this.attr('createdTeam').serialize());
 		},
 		updateTeam: function(teamChanged, el) {
-			//make request to update team
 			var teamName = teamChanged.teamName;
 			var slogan = teamChanged.slogan;
 

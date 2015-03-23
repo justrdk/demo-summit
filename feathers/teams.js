@@ -88,7 +88,6 @@ module.exports = {
 			var index = this.teams.indexOf(team);
 
 			data.id = team.id;
-			// Replace all the data
 			this.teams[index] = data;
 			callback(null, data);
 		} catch (error) {
