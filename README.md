@@ -1,2 +1,2 @@
 # demo-summit
-canjs with feathers and reactjs
+canjs with feathers, live info with sockets
