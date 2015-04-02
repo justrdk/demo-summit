@@ -13,9 +13,10 @@ module.exports = {
 		}, {
 			name: 'juan elmago jose'
 		}],
-		slogan: 'Win all dota games today, slaughter all peruvians on your way',
-		wins: '100',
-		losses: '0',
+		slogan: 'Slaughter all peruvians on our way',
+		wins: 0,
+		losses: 0,
+		winrate: 0,
 		hobbies: 'slaughter peruvians',
 		teamName: 'Peruvian Slayers'
 	}, {
@@ -28,10 +29,13 @@ module.exports = {
 			name: 'camilo el pm',
 		}, {
 			name: 'douglas elnuevo guerrero'
+		},{
+			name: 'douglas elnuevo ponce'
 		}],
 		slogan: 'Shrek is love, shrek is life',
-		wins: '0',
-		losses: '100',
+		wins: 0,
+		losses: 0,
+		winrate : 0,
 		hobbies: 'go to the mall',
 		teamName: 'San Peter Thugs'
 	}, {
@@ -48,8 +52,9 @@ module.exports = {
 			name: 'pamela lacatracha'
 		}],
 		slogan: 'If you beat us, we fire you (get rekt)',
-		wins: '9999',
-		losses: '0',
+		wins: 0,
+		losses: 0,
+		winrate: 0,
 		hobbies: 'code, meetings, summits',
 		teamName: 'Policia Militar'
 	}],

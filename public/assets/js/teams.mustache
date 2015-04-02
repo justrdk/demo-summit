@@ -1,6 +1,6 @@
 <team-info>
 <div class="row container">
-	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createTeam">Create Team</button>
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-team">Create Team</button>
 	<button type="button" class="btn btn-danger" can-click='deleteRandomTeam'>Delete Random Team</button>
 </div>
 {{#selectedTeam}}
@@ -37,9 +37,12 @@
 				{{#each members}}
 				<li class="list-group-item">{{name}}</li>
 				{{/each}}
+				<li class="list-group-item"><strong>Winrate: {{winrate}} %</strong></li>
 			</ul>
 		</div>
-		<button type="button" class="btn btn-success" can-click='selectTeam'>Edit Team Name</button>
+		<button type="button" class="btn btn-primary" can-click='addWin'>Add Win</button>
+		<button type="button" class="btn btn-danger" can-click='addLoss'>Add Loss</button>
+		<button type="button" class="btn btn-success" can-click='selectTeam'>Edit Team Info</button>
 	</div>
 	{{/each}}
 </div>
